@@ -1,25 +1,22 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Description: print numbers of base16 in lowercase
- *
+ * main - prints all possible combinations of single-digit numbers
  * Return: Always 0 (Success)
-*/
-
+ */
 int main(void)
 {
-	int num;
-	char letter;
+	int n;
 
-	for (num = 0; num < 10; num++)
-		putchar(num + '0');
-
-	for (letter = 'a'; letter <= 'f'; letter++)
-		putchar(letter);
-
+	for (n = 48; n < 58; n++)
+	{
+		putchar(n);
+		if (n != 57)
+		{
+			putchar(',');
+			putchar(' ');
+		}
+	}
 	putchar('\n');
-
 	return (0);
-}
+}}
