@@ -1,68 +1,35 @@
 #include "main.h"
-/**
- *_strlen - count array
- *@s: array of elements
- *Return: 1
- */
-
-int _strlen(char *s)
-{
-unsigned int i;
-
-i = 0;
-while (s[i] != '\0') /*count character of string*/
-{
-i++;
-}
-
-return (i);
-}
 
 /**
- *_strcpy - copy arrays
- *@src: array of elements
- *@dest: dest array
- *Return: dest
+ * str_concat - concatenate two string
+ *
+ * @s1: string
+ * @s2: string
+ *
+ * Return: pointer to newly allocated space or NULL in failure
  */
 
-char *_strcpy(char *dest, char *src)
+char *str_concat(char *s1, char *s2)
 {
-int i = 0;
+	char *new_str;
+	int i, len, _len;
 
-while (src[i] != '\0')
-{
-dest[i] = src[i];
-i++;
-}
-dest[i] = '\0';
+	if (!s1)
+		s1 = "";
 
-return (dest);
-}
+	if (!s2)
+		s2 = "";
 
-/**
- *_strdup - array for prints a string
- *@str: array of elements
- *Return: pointer
- */
+	len = strlen(s1);
+	_len = strlen(s2);
 
-char *_strdup(char *str)
-{
-char *dst;
-unsigned int size;
+	new_str = malloc(sizeof(char) * (len + _len + 1));
 
-if (str == 0)
-{
-return (NULL);
-}
+	if (!new_str)
+		return (NULL);
 
-size = _strlen(str) + 1;
+	for (i = 0; i <= len + _len; i++)
+		new_str[i] = i < len ? s1[i] : s2[i - len];
 
-dst = (char *) malloc(size *sizeof(char));
-
-if (dst == 0)
-{
-return (NULL);
-}
-_strcpy(dst, str);
-return (dst);
+	return (new_str);
 }
