@@ -1,15 +1,17 @@
 #include "main.h"
 
 /**
- * set_bit - bit to 1 indexed
- * @n: pointer with n.
- * @index: position
- * Return: 1 or -1
+ * get_bit - .....
+ * @n: decimal par
+ * @index: index
+ * Return: val
  */
-int set_bit(unsigned long int *n, unsigned int index)
+int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index > 64)
-		return (-1);
-	*n ^= (1 << index);
-	return (1);
+	int bit;
+
+	bit = (n >> index);
+	if (index > 32)
+	return (-1);
+	return (bit & 1);
 }
