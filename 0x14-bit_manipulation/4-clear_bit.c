@@ -4,7 +4,7 @@
  * clear_bit - bit to 0 in an index.
  *
  * @n: address of n.
- * @index:index given 
+ * @index:index given
  * Return: 1 or ou -1
  */
 int clear_bit(unsigned long int *n, unsigned int index)
